@@ -14,7 +14,8 @@ const { MigrationsDistGlob, MigrationsTableName, EntitiesGlob } =
 const adaptableConfig = {
 	type: 'postgres',
 	url: process.env.DATABASE_URL,
-	entities: [],
+	synchronize: true,
+	entities: [EntitiesGlob],
 }
 
 const devConfig = {
