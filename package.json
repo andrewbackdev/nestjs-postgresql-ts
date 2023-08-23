@@ -8,8 +8,8 @@
 	"scripts": {
 		"build": "nest build",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-		"prestart": "npm run db:up",
-		"start": "cross-env ENV_FILE=production.env nest start",
+		"prestart:dev": "npm run db:up",
+		"start": "cross-env ENV_FILE=production.env node dist/main.js",
 		"start:dev": "cross-env ENV_FILE=.env nest start --watch",
 		"start:debug": "cross-env ENV_FILE=.env nest start --debug --watch",
 		"lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",

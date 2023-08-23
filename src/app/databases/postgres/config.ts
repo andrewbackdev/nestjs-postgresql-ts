@@ -12,7 +12,7 @@ const { MigrationsDistGlob, MigrationsTableName, EntitiesGlob } =
 
 // See https://adaptable.io/docs/app-guides/deploy-nestjs-app#next-steps-connect-to-the-database
 const adaptableConfig = {
-	type: 'postgres',
+	type: TypeOrmTypeEnum.Postgres,
 	url: process.env.DATABASE_URL,
 	synchronize: true,
 	entities: [EntitiesGlob],
