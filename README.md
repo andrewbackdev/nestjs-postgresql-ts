@@ -10,6 +10,8 @@ This repository contains a sample application built using the following technolo
 - Docker
 - Docker Compose
 
+API server example: https://nestjs-forum-example.adaptable.app
+
 ## Getting started
 
 ### Prerequisites
