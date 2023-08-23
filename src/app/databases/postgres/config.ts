@@ -1,6 +1,6 @@
 // config
 import { PostgreSqlConfig, MigrationConfig } from '@config/databases'
-import { IsDevelopment } from '@config/runtime/runtime'
+import { IsDevelopment, IsProduction } from '@config/runtime/runtime'
 
 // types
 import { TypeOrmTypeEnum } from '../typeorm/types'
@@ -10,7 +10,14 @@ const { Host, Port, Username, Password, Database } = PostgreSqlConfig
 const { MigrationsDistGlob, MigrationsTableName, EntitiesGlob } =
 	MigrationConfig
 
-export default {
+// See https://adaptable.io/docs/app-guides/deploy-nestjs-app#next-steps-connect-to-the-database
+const adaptableConfig = {
+	type: 'postgres',
+	url: process.env.DATABASE_URL,
+	entities: [],
+}
+
+const devConfig = {
 	type: TypeOrmTypeEnum.Postgres,
 	host: Host,
 	port: Port,
@@ -22,3 +29,5 @@ export default {
 	migrationsTableName: MigrationsTableName,
 	migrations: [MigrationsDistGlob],
 }
+
+export default IsProduction ? adaptableConfig : devConfig
